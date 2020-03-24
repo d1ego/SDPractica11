@@ -1,3 +1,4 @@
+#include "SocketDatagrama.h"
 #ifndef RESPUESTA_H
 #define RESPUESTA_H
 class Respuesta

@@ -1,5 +1,4 @@
 #include "SocketDatagrama.h"
-#include "PaqueteDatagrama.h"
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <stdio.h>
@@ -7,11 +6,14 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <cstring>
+#include <unistd.h>
 
 SocketDatagrama::SocketDatagrama(int _puerto){
 	s = socket(AF_INET, SOCK_DGRAM, 0);
 	bzero((char *)&direccionLocal, sizeof(direccionLocal));
-	//bzero((char *)&direccionForanea, sizeof(direccionForanea));
 	direccionLocal.sin_family = AF_INET;
 	direccionLocal.sin_addr.s_addr = INADDR_ANY;
 	direccionLocal.sin_port = htons(_puerto);

@@ -1,0 +1,13 @@
+main: PaqueteDatagrama.o SocketDatagrama.o Solicitud.o
+	g++ cliente.cpp SocketDatagrama.o PaqueteDatagrama.o Solicitud.o -o cliente
+Solicitud.o:
+	g++ -c Solicitud.cpp
+SocketDatagrama.o:
+	g++ -c SocketDatagrama.cpp
+PaqueteDatagrama.o:
+	g++ -c PaqueteDatagrama.cpp
+clean:
+	rm Solicitud.o
+	rm PaqueteDatagrama.o
+	rm SocketDatagrama.o
+	rm cliente

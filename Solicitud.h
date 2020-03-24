@@ -1,3 +1,5 @@
+#include "SocketDatagrama.h"
+#include "mensaje.h"
 #ifndef SOLICITUD_H
 #define SOLICITUD_H
 class Solicitud
