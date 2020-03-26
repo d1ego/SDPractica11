@@ -12,6 +12,7 @@ int main(int argc, char* argv[]) {
 	Solicitud solicitud;
 	memcpy(&numRespuesta,solicitud.doOperation(argv[1],6666,1,(char*)&num),4);
 
+
 	//solicitud.prueba(10);
 	//memcpy(&numRespuesta,solicitud.doOperation(argv[1],6666,1,(char*)&num),10);
 	//cout<<numRespuesta<<endl;

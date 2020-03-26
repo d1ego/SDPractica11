@@ -10,13 +10,13 @@ Respuesta::Respuesta(int pl)
 }
 
 struct mensaje* Respuesta::getRequest(void){
-	socketlocal->recibe(p);
+  int recibido = socketlocal->recibe(p);
 	p.obtieneDireccion();
 	p.obtienePuerto();
 	p.obtieneDatos();
 	//msgReturn.arguments=(struct mensaje*)&p.obtieneDatos();
 	//return &msgReturn;
-  return (struct mensaje*)&p.obtieneDatos();
+  return (struct mensaje*)p.obtieneDatos();
 }
 
 void Respuesta::sendReply(char *respuesta){

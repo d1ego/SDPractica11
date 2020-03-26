@@ -12,12 +12,14 @@
 using namespace std;
 
 int main() {
-    Respuesta resp = Respuesta(0);
+    Respuesta resp = Respuesta(6666);
     cout<< "Esperando Respuesta:"<<endl;
     while(1){
-        struct mensaje msg=*resp.getRequest();
-        cout<<msg.arguments<<endl;
-        char numRespuesta = msg.arguments[0] + msg.arguments[1];
+      int numeros[2];
+        struct mensaje* msg=resp.getRequest();
+        memcpy(&numeros,&msg->arguments, sizeof(msg->arguments));
+        cout<<msg->arguments<<endl;
+        int numRespuesta = numeros[0]+numeros[1];
         resp.sendReply((char*)&numRespuesta);
     }
 }

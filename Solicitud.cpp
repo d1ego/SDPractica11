@@ -28,6 +28,7 @@ char * Solicitud::doOperation(char *IP, int puerto, int operationId, char *argum
   //struct mensaje msgR;
   //memcpy(msgR.arguments,pRes.obtieneDatos(),sizeof(4000));
 
+
   int recibido = socketlocal->recibe(pRes);
   cout << "Datos recibidos"<<endl;
   cout << "IP: "<<pRes.obtieneDireccion()<<endl;
