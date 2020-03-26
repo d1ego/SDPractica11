@@ -1,11 +1,11 @@
-main: PaqueteDatagrama.o SocketDatagrama.o Solicitud.o
-	g++ cliente.cpp SocketDatagrama.o PaqueteDatagrama.o Solicitud.o -o cliente
-Solicitud.o:
-	g++ -c Solicitud.cpp
-SocketDatagrama.o:
-	g++ -c SocketDatagrama.cpp
-PaqueteDatagrama.o:
-	g++ -c PaqueteDatagrama.cpp
+main: cliente.cpp Solicitud.o PaqueteDatagrama.o SocketDatagrama.o
+	g++ cliente.cpp Solicitud.o SocketDatagrama.o PaqueteDatagrama.o -o cliente
+Solicitud.o: Solicitud.cpp SocketDatagrama.o PaqueteDatagrama.o Solicitud.h
+	g++ Solicitud.cpp -c
+SocketDatagrama.o: SocketDatagrama.cpp PaqueteDatagrama.o SocketDatagrama.h
+	g++ SocketDatagrama.cpp -c
+PaqueteDatagrama.o: PaqueteDatagrama.cpp PaqueteDatagrama.h
+	g++ PaqueteDatagrama.cpp -c
 clean:
 	rm Solicitud.o
 	rm PaqueteDatagrama.o

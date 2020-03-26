@@ -47,5 +47,5 @@ void PaqueteDatagrama::inicializaIp(char *_ip) {
 }
 
 void PaqueteDatagrama::inicializaDatos(char *_datos) {
-    memcpy(datos, _datos, longitud*sizeof(char));
+    memcpy(datos, _datos, longitud);
 }
