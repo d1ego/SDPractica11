@@ -14,14 +14,15 @@ char * Solicitud::doOperation(char *IP, int puerto, int operationId, char *argum
 {//Usuario cliente (puerto variable)
   int enviado, recibido;
   cout << "doOperation"<<endl;
+  cout << arguments[0]<<endl;
+
 	struct mensaje msg;
 	msg.messageType = 0;
-	//msg.requestId = 0;
+	msg.requestId = 0;
 	msg.operationId=operationId;
-  strcpy(msg.arguments,arguments);
-
-  //memcpy(msg.arguments,arguments,sizeof(arguments));
-	PaqueteDatagrama p = PaqueteDatagrama((char*)&msg,sizeof(msg),IP,puerto);
+  //strcpy(msg.arguments,arguments);
+  memcpy(msg.arguments,arguments,sizeof(struct mensaje*));
+	PaqueteDatagrama p = PaqueteDatagrama((char*)&msg,TAM_MAX_DATA,IP,puerto);
   cout << "Datos enviados"<<endl;
   cout << "IP: "<<p.obtieneDireccion()<<endl;
   cout << "Puerto: "<<p.obtienePuerto()<<endl;
@@ -42,7 +43,8 @@ char * Solicitud::doOperation(char *IP, int puerto, int operationId, char *argum
   cout << "IP: "<<pRes.obtieneDireccion()<<endl;
   cout << "Puerto: "<<pRes.obtienePuerto()<<endl;
 
-  struct mensaje* msgR=(struct mensaje*)pRes.obtieneDatos();
+struct mensaje* msgR=(struct mensaje*)pRes.obtieneDatos();
 
-	return (char *)msgR->arguments;
+	//return pRes.obtieneDatos();
+  return (char *)msgR->arguments;
 }

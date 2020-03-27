@@ -28,7 +28,7 @@ SocketDatagrama::~SocketDatagrama() {
 
 int SocketDatagrama::recibe(PaqueteDatagrama &p) {
   unsigned int clilen = sizeof(direccionForanea);
-	int a = recvfrom(s, (char *) p.obtieneDatos(), p.obtieneLongitud(), 0, (struct sockaddr *) &direccionForanea, &clilen);
+	int a = recvfrom(s, (char *)p.obtieneDatos(), p.obtieneLongitud(), 0, (struct sockaddr *) &direccionForanea, &clilen);
 	p.inicializaIp(inet_ntoa(direccionForanea.sin_addr));
 	p.inicializaPuerto(ntohs(direccionForanea.sin_port));
 

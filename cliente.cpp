@@ -7,11 +7,13 @@ using namespace std;
 int main(int argc, char* argv[]) {
 	int num[2];
 	int numRespuesta;
-    num[0] = 5;
-    num[1] = 5; /*rellena el mensaje */
+    num[0] = atoi(argv[2]);
+    num[1] = atoi(argv[3]);
 	Solicitud solicitud;
-	cout<<"Numero enviados: "<< num[0]<<","<<num[1]<<endl;
-	memcpy(&numRespuesta,solicitud.doOperation(argv[1],7200,1,(char*)&num),4);
+	cout<< num[0]<<endl;
+	cout<<num[1]<<endl;
+	//strcpy(numRespuesta,solicitud.doOperation(argv[1],7200,1,(char*)&num));
+	memcpy(&numRespuesta,solicitud.doOperation(argv[1],7200,1,(char*)&num),2*sizeof(int));
 
 	//solicitud.prueba(10);
 	//memcpy(&numRespuesta,solicitud.doOperation(argv[1],6666,1,(char*)&num),10);

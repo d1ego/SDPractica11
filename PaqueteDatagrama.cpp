@@ -5,8 +5,8 @@
 PaqueteDatagrama::PaqueteDatagrama(char* _datos, unsigned int _longitud, char* _ip, int _puerto) {
     datos = new char[_longitud];
     longitud = _longitud;
-    memcpy(datos,_datos, _longitud*sizeof(char));
-    memcpy(ip, _ip, sizeof(ip));
+    memcpy(datos,_datos, _longitud);
+    memcpy(ip, _ip, 16);
     puerto = _puerto;
 }
 
